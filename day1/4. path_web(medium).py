@@ -75,6 +75,7 @@ Sample Output 0
 """
 
 
+# kurskal algorithm
 def connetions(n: int, roads: list[list[int]]) -> tuple[int, list] | tuple[-1, list]:
     roads.sort(key=lambda x: x[2])
     parent = list(range(n))
