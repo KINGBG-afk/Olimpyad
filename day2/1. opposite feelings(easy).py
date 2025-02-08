@@ -36,19 +36,24 @@ Same
 """
 
 
-def opposite(person1: int, person2: int) -> str:
-    if (person1 ^ person2) < 0:
-        return "Opposite"
-    return "Same"
+def opposite(person1: int, person2: int) -> bool:
+    if (person1[0] == "-" and person2[0] != "-") or (person2[0] == "-" and person1[0] != "-"):
+        return True
+    return False
+ 
 
 
 t = int(input())
 
 cases = []
 for _ in range(t):
-    person1, person2 = map(int, input().split())
-
+    person1, person2 = map(str, input().split())
     cases.append((person1, person2))
 
 for people in cases:
-    print(opposite(people[0], people[1]))
+    result = opposite(people[0], people[1])
+    
+    if result:
+        print("Opposite")
+    else:
+        print("Same")
